@@ -45,8 +45,8 @@ body {
     background: #b8962d;
 }
 
-/* Loader */
-.loader-wrapper {
+/* Splash Screen */
+.splash-screen {
     position: fixed;
     top: 0;
     left: 0;
@@ -56,23 +56,60 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 1000;
-    transition: opacity 0.5s ease;
+    z-index: 2000;
+    transition: transform 1s cubic-bezier(0.77, 0, 0.175, 1);
 }
 
-.loader {
-    width: 50px;
-    height: 50px;
-    border: 3px solid transparent;
-    border-top-color: var(--primary-color);
-    border-radius: 50%;
-    animation: spin 1s linear infinite;
+.splash-content {
+    text-align: center;
 }
 
-@keyframes spin {
-    to {
-        transform: rotate(360deg);
+.reveal-text {
+    font-family: var(--font-heading);
+    font-size: 3rem;
+    margin-bottom: 40px;
+    background: linear-gradient(to right, #fff, var(--primary-color));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.gift-container {
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.gift-box {
+    font-size: 6rem;
+    animation: floating 3s ease-in-out infinite;
+}
+
+.gift-container p {
+    margin-top: 20px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+.gift-container:hover {
+    transform: scale(1.1);
+}
+
+@keyframes floating {
+
+    0%,
+    100% {
+        transform: translateY(0);
     }
+
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+.splash-screen.hidden {
+    transform: translateY(-100%);
 }
 
 /* Container */
@@ -106,29 +143,6 @@ body {
     transform: translate(-50%, -50%);
     object-fit: cover;
     filter: brightness(0.6);
-}
-
-/* Sound Toggle Button */
-.sound-toggle {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    z-index: 100;
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    color: white;
-    padding: 10px 20px;
-    border-radius: 30px;
-    cursor: pointer;
-    font-family: var(--font-body);
-    font-size: 0.9rem;
-    transition: all 0.3s ease;
-}
-
-.sound-toggle:hover {
-    background: rgba(255, 255, 255, 0.2);
-    transform: scale(1.05);
 }
 
 .hero-content h1 {

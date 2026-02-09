@@ -1,17 +1,17 @@
 console.log("Script loaded successfully!");
 
 window.addEventListener('load', () => {
-    // Reveal loader
-    const loader = document.getElementById('loader');
-    setTimeout(() => {
-        loader.style.opacity = '0';
-        setTimeout(() => {
-            loader.style.display = 'none';
-        }, 500);
+    // Force la vidéo à être muette dès le départ
+    const video = document.getElementById('hero-video');
+    if (video) {
+        video.muted = true;
+        video.volume = 0; // Sécurité supplémentaire
+    }
 
-        // Initial Confetti
-        fireConfetti();
-    }, 1500);
+    // Initial Confetti after a small delay
+    setTimeout(() => {
+        // fireConfetti(); // Optional: do we want confetti at start or only on click?
+    }, 500);
 
     // Scroll Reveal Logic
     const revealElements = document.querySelectorAll('.reveal');
@@ -52,21 +52,31 @@ function fireConfetti() {
     }, 250);
 }
 
-// Sound Logic
+// Sound Logic (Fichier MP3 Local)
 const video = document.getElementById('hero-video');
 const music = document.getElementById('birthday-music');
-const soundBtn = document.getElementById('sound-toggle');
+const splash = document.getElementById('splash-screen');
+const startBtn = document.getElementById('start-experience');
 
-soundBtn.addEventListener('click', () => {
-    if (music.paused) {
-        music.play();
-        video.muted = false;
-        soundBtn.innerHTML = "🔊 Couper la musique";
-    } else {
-        music.pause();
-        video.muted = true;
-        soundBtn.innerHTML = "🔇 Activer la musique";
+startBtn.addEventListener('click', () => {
+    // 1. Démarrer la musique locale
+    if (music) {
+        music.play().catch(e => console.error("Erreur lecture audio:", e));
     }
+
+    // 2. Démarrer la vidéo (muette)
+    if (video) {
+        video.play();
+        video.muted = true;
+    }
+
+    // 3. Masquer le splash screen
+    splash.classList.add('hidden');
+
+    // 4. Lancer les confettis
+    fireConfetti();
+
+    console.log("Expérience démarrée !");
 });
 
 // Slider Logic

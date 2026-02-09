@@ -19,18 +19,24 @@
 </head>
 
 <body>
-    <div id="loader" class="loader-wrapper">
-        <div class="loader"></div>
+    <div id="splash-screen" class="splash-screen">
+        <div class="splash-content">
+            <h2 class="reveal-text">Coucou Audrey</h2>
+            <div class="gift-container" id="start-experience">
+                <div class="gift-box">🎁</div>
+                <p>Clique pour ta surprise</p>
+            </div>
+        </div>
     </div>
 
     <section class="hero" id="home">
-        <video autoplay loop playsinline class="hero-video" id="hero-video" muted>
+        <video loop playsinline class="hero-video" id="hero-video" muted>
             <source src="videoCousine.mp4" type="video/mp4">
         </video>
+        <!-- Audio Local -->
         <audio id="birthday-music" loop>
-            <source src="naza-birthday.mp3" type="audio/mpeg">
+            <source src="Happy Birthday.mp3" type="audio/mpeg">
         </audio>
-        <button id="sound-toggle" class="sound-toggle">🔇 Activer la musique</button>
         <div class="hero-content">
             <h1 class="reveal">Joyeux Anniversaire</h1>
             <p class="subtitle reveal">À ma cousine exceptionnelle</p>
