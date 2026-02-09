@@ -1,3 +1,5 @@
+console.log("Script loaded successfully!");
+
 window.addEventListener('load', () => {
     // Reveal loader
     const loader = document.getElementById('loader');
@@ -52,15 +54,18 @@ function fireConfetti() {
 
 // Sound Logic
 const video = document.getElementById('hero-video');
+const music = document.getElementById('birthday-music');
 const soundBtn = document.getElementById('sound-toggle');
 
 soundBtn.addEventListener('click', () => {
-    if (video.muted) {
+    if (music.paused) {
+        music.play();
         video.muted = false;
-        soundBtn.innerHTML = "🔊 Couper le son";
+        soundBtn.innerHTML = "🔊 Couper la musique";
     } else {
+        music.pause();
         video.muted = true;
-        soundBtn.innerHTML = "🔇 Activer le son";
+        soundBtn.innerHTML = "🔇 Activer la musique";
     }
 });
 
