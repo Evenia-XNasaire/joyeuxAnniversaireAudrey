@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joyeux Anniversaire !</title>
+    <meta name="description" content="Une surprise spéciale pour ton anniversaire.">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="loader" class="loader-wrapper">
+        <div class="loader"></div>
+    </div>
+
+    <section class="hero" id="home">
+        <video autoplay loop playsinline class="hero-video" id="hero-video" muted>
+            <source src="videoCousine.mp4" type="video/mp4">
+        </video>
+        <button id="sound-toggle" class="sound-toggle">🔇 Activer le son</button>
+        <div class="hero-content">
+            <h1 class="reveal">Joyeux Anniversaire</h1>
+            <p class="subtitle reveal">À ma cousine exceptionnelle</p>
+            <div class="scroll-down">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </section>
+
+    <section class="story-section" id="story">
+        <div class="container">
+            <h2 class="section-title reveal">Une BelleHistoire</h2>
+            <div class="slider-container reveal">
+                <div class="slider" id="story-slider">
+                    <!-- Slide 1 -->
+                    <div class="slide active" data-index="0">
+                        <div class="slide-content">
+                            <div class="slide-image">
+                                <img src="image1.jpeg" alt="Histoire 1">
+                            </div>
+                            <div class="slide-text card-style-1">
+                                <p>Il y a un an, grâce à un simple groupe de famille, j’ai découvert une cousine que je
+                                    ne connaissais pas encore vraiment. On ne s’était jamais vus...</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Slide 2 -->
+                    <div class="slide" data-index="1">
+                        <div class="slide-content">
+                            <div class="slide-image">
+                                <img src="image2.jpeg" alt="Histoire 2">
+                            </div>
+                            <div class="slide-text card-style-2">
+                                <p>Mais très vite, à travers les messages et les appels, une certaine proximité s’est
+                                    installée. Sans se rencontrer, on a appris à se comprendre.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Slide 3 -->
+                    <div class="slide" data-index="2">
+                        <div class="slide-content">
+                            <div class="slide-image">
+                                <img src="image3.jpeg" alt="Histoire 3">
+                            </div>
+                            <div class="slide-text card-style-3">
+                                <p>Puis le virtuel a laissé place au réel : on s’est enfin rencontrés. Cette première
+                                    rencontre restera spéciale, notamment à travers ton geste.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Slide 4 -->
+                    <div class="slide" data-index="3">
+                        <div class="slide-content">
+                            <div class="slide-image">
+                                <img src="image4.jpeg" alt="Histoire 4">
+                            </div>
+                            <div class="slide-text card-style-4">
+                                <p>En repensant à tout cela aujourd’hui, je te souhaite une année douce, remplie de paix
+                                    et de belles opportunités. Joyeux anniversaire !</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="slider-btn prev" id="prev-slide">❮</button>
+                <button class="slider-btn next" id="next-slide">❯</button>
+
+                <div class="slider-dots" id="slider-dots">
+                    <span class="dot active"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="gallery" id="gallery">
+        <div class="container">
+            <h2 class="section-title reveal">Moments Précieux</h2>
+            <div class="grid-gallery">
+                <div class="gallery-item reveal">
+                    <img src="image1.jpeg" alt="Moment 1">
+                </div>
+                <div class="gallery-item reveal">
+                    <img src="image2.jpeg" alt="Moment 2">
+                </div>
+                <div class="gallery-item reveal">
+                    <img src="image3.jpeg" alt="Moment 3">
+                </div>
+                <div class="gallery-item reveal">
+                    <img src="image4.jpeg" alt="Moment 4">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="wish-section" id="wish">
+        <div class="container">
+            <div class="wish-box reveal">
+                <div class="gift-icon">🎁</div>
+                <h3>Mes vœux pour toi</h3>
+                <p>Que chaque jour t’apporte quelque chose de bon, tout simplement. Profite au mieux de cette journée
+                    spéciale !</p>
+                <button class="btn-primary" onclick="fireConfetti()">Clique pour une surprise !</button>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>Fait avec ❤️ pour ton anniversaire</p>
+    </footer>
+
+    <!-- Canvas for Confetti -->
+    <canvas id="confetti-canvas"></canvas>
+
+    <!-- JS -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
